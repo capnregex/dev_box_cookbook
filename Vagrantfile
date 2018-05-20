@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require_relative 'lib/proxy.rb'
+# require_relative 'lib/proxy.rb'
 
 Vagrant.configure("2") do |config|
 
@@ -19,6 +19,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "chef_zero", run: :always do |chef|
+    chef.product = 'chefdk'
+
     # chef.log_level = 'debug'
 
     chef.cookbooks_path = "cookbooks"
