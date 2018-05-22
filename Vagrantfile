@@ -1,10 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# require 'pry'
 
-# Vagrant.require_plugin "vagrant-proxyconf"
+require_relative 'lib/require_plugin.rb'
+require_plugin('vagrant-proxyconf')
+
+# vagrant plugin install vagrant-proxyconf
 # vagrant plugin install vagrant-vbguest
 # vagrant plugin install vagrant-proxyconf
+
+# binding.pry
 
 Vagrant.configure("2") do |config|
 
@@ -35,6 +41,8 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--vram", "128"]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
+
+    # Add a virtual cd drive (for guest additions, etc)
     vb.customize ['storageattach', :id, 
       "--storagectl", "IDE Controller", 
       '--port', 1, 
