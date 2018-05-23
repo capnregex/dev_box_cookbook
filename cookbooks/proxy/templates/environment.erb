@@ -1,0 +1,20 @@
+<% if env = node[:env] -%>
+PATH=<%= env[:path] %>
+<% if lang = env[:lang] -%>
+LANG=<%= lang %>
+<%- end %>
+<%- end %>
+<% if proxy = node[:proxy] -%>
+<% if http_proxy = proxy[:http] -%>
+http_proxy=<%= http_proxy %>
+HTTP_PROXY=<%= http_proxy %>
+<%- end %>
+<% if https_proxy = proxy[:https] -%>
+https_proxy=<%= https_proxy %>
+HTTPS_PROXY=<%= https_proxy %>
+<%- end %>
+<% if no_proxy = proxy[:no] -%>
+no_proxy=<%= no_proxy %>
+NO_PROXY=<%= no_proxy %>
+<%- end %>
+<%- end %>

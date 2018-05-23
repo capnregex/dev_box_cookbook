@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
   config.vm.provider "virtualbox" do |vb|
-    # vb.gui = true
+    vb.gui = true
     # vb.name = "xenial"
     vb.memory = "2048"
     # vb.cpus = 2
@@ -71,10 +71,10 @@ Vagrant.configure("2") do |config|
     chef.no_proxy = ENV['no_proxy']
 #    chef.json = { proxy: proxy.to_h }
 
-    #chef.add_recipe "proxy"
+    chef.add_recipe "ubuntu"
+    chef.add_recipe "update"
     chef.add_recipe "dev_box"
-    #chef.add_recipe "update"
-    #chef.add_recipe "xubuntu"
+    chef.add_recipe "xubuntu"
     #chef.add_recipe "xubuntu::start"
   end
 

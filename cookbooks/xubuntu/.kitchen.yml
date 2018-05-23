@@ -18,13 +18,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[ubuntu]
-      - recipe[dev_box]
-      - recipe[update]
-      - recipe[xubuntu]
-      - recipe[dev_box::firefox]
+      - recipe[xubuntu::default]
     verifier:
       inspec_tests:
-        - test/integration/apt
-        - test/integration/ubuntu
+        - test/integration/default
     attributes:

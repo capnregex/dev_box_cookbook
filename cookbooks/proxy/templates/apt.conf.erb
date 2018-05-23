@@ -1,0 +1,12 @@
+<% if node.attribute? :env -%>
+# ENV
+<%- end %>
+<% if proxy = node[:proxy] -%>
+# PROXY
+<% if http_proxy = proxy[:http] -%>
+Acquire::http::Proxy "<%= http_proxy %>";
+<%- end %>
+<% if https_proxy = proxy[:https] -%>
+Acquire::https::Proxy "<%= https_proxy %>";
+<%- end %>
+<%- end %>
