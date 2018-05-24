@@ -1,20 +1,13 @@
 ---
 driver:
   name: vagrant
-
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
-
 verifier:
   name: inspec
-
 platforms:
   - name: ubuntu-16.04
-
 suites:
   - name: default
     run_list:
@@ -22,9 +15,11 @@ suites:
       - recipe[dev_box]
       - recipe[update]
       - recipe[xubuntu]
-      - recipe[dev_box::firefox]
+      - recipe[dev_box::webkit]
     verifier:
       inspec_tests:
         - test/integration/apt
         - test/integration/ubuntu
+        - cookbooks/dev_box/test/integration/default
+        - cookbooks/dev_box/test/integration/webkit
     attributes:
