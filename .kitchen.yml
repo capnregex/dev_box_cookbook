@@ -20,6 +20,5 @@ suites:
       inspec_tests:
         - test/integration/apt
         - test/integration/ubuntu
-        - cookbooks/dev_box/test/integration/default
         - cookbooks/dev_box/test/integration/webkit
     attributes:

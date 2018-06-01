@@ -9,3 +9,5 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 issues_url 'https://github.com/capnregex/dev_box_cookbook/issues'
 source_url 'https://github.com/capnregex/dev_box_cookbook'
 depends 'ubuntu', '~> 2.0.1'
+depends 'java', '~> 2.1.0'
+

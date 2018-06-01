@@ -16,8 +16,14 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[dev_box]
+      - recipe[ubuntu]
+      - recipe[dev_box::update]
+      - recipe[dev_box::default]
+      - recipe[dev_box::webkit]
+      - recipe[java]
     verifier:
       inspec_tests:
         - test/integration/default
+        - test/integration/java
+        - test/integration/webkit
     attributes:
